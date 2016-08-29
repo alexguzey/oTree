@@ -13,14 +13,32 @@ class Introduction(Page):
     def is_displayed(self):
         return  self.subsession.round_number == 2
 
-class Guess(Page):
+class Pick_box(Page):
+
+    form_model = models.Player
+    form_fields = ['points']
 
     def vars_for_template(self):
         return {
-            'overthrow': 5
+            'picked_box': 0
         }
+
+class Guess(Page):
+
+    form_model = models.Player
+    form_fields = ['guess']
+
+    def vars_for_template(self):
+        return {
+            'picked_box': self.player.points
+        }
+
+class Final(Page):
+    pass
 
 page_sequence =[
     Introduction,
-    Guess
+    Pick_box,
+    Guess,
+    Final
 ]

@@ -1,0 +1,57 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Выбери квадрат
+{% endblock %}
+
+{% block styles %}
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link href="{% static "xtr/style.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+    <p>Из квадратов ниже выбери один, нажав на него, и после этого нажми кнопку далее. На следующем экране контуры всех квадратов,
+        кроме самого большого, пропадут, а сами квадраты переместятся в другое место на экране. Твоей задачей будет попасть в тот
+        же самый квадрат, что ты выберешь сейчас. Чем меньше квадрат, тем больше очков ты получишь, при успешном попадании в него.</p>
+    <div class="box_0" style="position: relative; top: 0px; left: 0px; width: 725px; height: 725px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this)">box_0</div>
+    <div class="box_1" style="position: relative; top: -325px; left: 200px; width: 325px; height: 325px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this)">box_1</div>
+    <div class="box_2" style="position: relative; top: -450px; left: 300px; width: 125px; height: 125px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this)">box_2</div>
+    <div class="box_3" style="position: relative; top: -425px; left: 350px; width: 25px; height: 25px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this)">box_3</div>
+
+            <input type="hidden" name="points" required id="id_points" class="form-control" />
+
+    <input id="picked_box_form" disabled />
+
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function pick(item) {
+
+                document.getElementById('picked_box_form').value = "You picked " + $(item).attr("class");
+                document.getElementById('id_points').value = $(item).attr("class");
+
+                $(".box_3").fadeOut(500, function() {
+                    $(".box_2").fadeOut(500, function() {
+                        $(".box_1").fadeOut(500, function() {
+                            $(".box_0").fadeOut(500);
+                        });
+                    });
+                });
+            }
+
+        </script>
+
+    {% endblock %}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Последняя страница
+{% endblock %}
+
+{% block styles %}
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link href="{% static "xtr/style.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+    <p>Спасибо за участие!</p>
+
+
+{% endblock %}

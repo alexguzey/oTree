@@ -31,4 +31,5 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-    pass
+    points = models.TextField()
+    guess = models.TextField()
