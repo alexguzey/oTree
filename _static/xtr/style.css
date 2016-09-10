@@ -1,60 +1,126 @@
-        .box_0 {
-            background-color: #ddd;
-            margin-bottom: -200px;
-            font-size: 64px;
-            text-align: center;
-        }
-        .box_0:hover {
-            background-color: #9ac1ff;
-            transition: .5s;
-        }
-        .box_1 {
-            background-color: #bbb; 
-            margin-bottom: -100px;
-            font-size: 32px;
-            text-align: center;
-        }
-        .box_1:hover {
-            background-color: #9ac1ff;
-            transition: .5s;
-        }
-        .box_2 {
-            background-color: #888;
-            margin-bottom: -100px;
-            font-size: 16px;
-            text-align: center;
-        }
-        .box_2:hover {
-            background-color: #9ac1ff;
-            transition: .5s;
-        }
-        .box_3 {
-            background-color: #555;
-            margin-bottom: -50px; 
-            font-size: 8px;
-            text-align: center;
-        }
-        .box_3:hover {
-            background-color: #9ac1ff;
-            transition: .5s;
-        }
-        .box_0_guess {
-            background-color: #ddd;
-            margin-bottom: -200px;
-        }
-        .box_1_guess {
-            background-color: #ddd; 
-            margin-bottom: -100px;
-        }
-        .box_2_guess {
-            background-color: #ddd;
-            margin-bottom: -100px;
-        }
-        .box_3_guess {
-            background-color: #ddd;
-            margin-bottom: -50px;
-        }
-#picked_box_form, #result_form {
+#box_0 {
+    background-color: #ddd;
+    margin-bottom: -200px;
+    font-size: 64px;
+    text-align: center;
+}
+#box_0:hover {
+    background-color: #9ac1ff;
+    transition: .5s;
+}
+#box_1 {
+    background-color: #bbb; 
+    margin-bottom: -100px;
+    font-size: 32px;
+    text-align: center;
+}
+#box_1:hover {
+    background-color: #9ac1ff;
+    transition: .5s;
+}
+#box_2 {
+    background-color: #888;
+    margin-bottom: -100px;
+    font-size: 16px;
+    text-align: center;
+}
+#box_2:hover {
+    background-color: #9ac1ff;
+    transition: .5s;
+}
+#box_3 {
+    background-color: #555;
+    margin-bottom: -50px; 
+    font-size: 8px;
+    text-align: center;
+}
+#box_3:hover {
+    background-color: #9ac1ff;
+    transition: .5s;
+}
+
+
+
+
+
+#box_0_guess {
+    background-color: #ddd;
+    margin-bottom: -150px;
+}
+#box_1_guess {
+    background-color: #ddd; 
+    margin-bottom: -100px;
+}
+#box_2_guess {
+    background-color: #ddd;
+    margin-bottom: -100px;
+}
+#box_3_guess {
+    background-color: #ddd;
+    margin-bottom: -50px;
+}
+
+
+
+
+
+
+#box_0_result {
+    background-color: #ddd;
+    margin-bottom: -200px;
+    font-size: 64px;
+    text-align: center;
+    border-radius: 6px;
+}
+#box_1_result {
+    background-color: #bbb; 
+    margin-bottom: -100px;
+    font-size: 32px;
+    text-align: center;
+    border-radius: 6px;
+}
+#box_2_result {
+    background-color: #888;
+    margin-bottom: -100px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 6px;
+}
+#box_3_result {
+    background-color: #555;
+    margin-bottom: -75px; 
+    font-size: 8px;
+    text-align: center;
+    border-radius: 6px;
+}
+
+
+#pick_box_round_1, #pick_box_round_1_legend {
+    background-color: #f33;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+#guess_box_round_1, #guess_box_round_1_legend {
+    background-color: #f99;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+#pick_box_round_2, #pick_box_round_2_legend {
+    background-color: #3f3;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+#guess_box_round_2, #guess_box_round_2_legend {
+    background-color: #9f9;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+}
+
+#picked_box_form, #result_form, #box_0_coordinates_form, #coords_box {
         font-size: 32px;
         background-color: transparent;
         border-width: 0;

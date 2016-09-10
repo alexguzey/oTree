@@ -22,7 +22,7 @@ Point guessing game
 class Constants(BaseConstants):
     name_in_url = 'xtr'
     players_per_group = None
-    num_rounds = 1
+    num_rounds = 2
 
 class Subsession(BaseSubsession):
     pass
@@ -32,4 +32,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     points = models.TextField()
+    x_coordinate_form_pick = models.IntegerField()
+    y_coordinate_form_pick = models.IntegerField()
+    x_coordinate_form_guess = models.IntegerField()
+    y_coordinate_form_guess = models.IntegerField()
     guess = models.TextField()

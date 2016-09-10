@@ -17,32 +17,41 @@
     <p>Из квадратов ниже выбери один, нажав на него, и после этого нажми кнопку далее. На следующем экране контуры всех квадратов,
         кроме самого большого, пропадут, а сами квадраты переместятся в другое место на экране. Твоей задачей будет попасть в тот
         же самый квадрат, что ты выберешь сейчас. Чем меньше квадрат, тем больше очков ты получишь, при успешном попадании в него.</p>
-    <div class="box_0" style="position: relative; top: 0px; left: 0px; width: 725px; height: 725px; border-radius: 6px; cursor: pointer;"
-         onclick="pick(this)">box_0</div>
-    <div class="box_1" style="position: relative; top: -325px; left: 200px; width: 325px; height: 325px; border-radius: 6px; cursor: pointer;"
-         onclick="pick(this)">box_1</div>
-    <div class="box_2" style="position: relative; top: -450px; left: 300px; width: 125px; height: 125px; border-radius: 6px; cursor: pointer;"
-         onclick="pick(this)">box_2</div>
-    <div class="box_3" style="position: relative; top: -425px; left: 350px; width: 25px; height: 25px; border-radius: 6px; cursor: pointer;"
-         onclick="pick(this)">box_3</div>
+    <div id="box_0" style="position: relative; top: 0px; left: 0px; width: 725px; height: 725px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this, event)">box_0</div>
+    <div id="box_1" style="position: relative; top: -325px; left: 200px; width: 325px; height: 325px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this, event)">box_1</div>
+    <div id="box_2" style="position: relative; top: -450px; left: 300px; width: 125px; height: 125px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this, event)">box_2</div>
+    <div id="box_3" style="position: relative; top: -425px; left: 350px; width: 25px; height: 25px; border-radius: 6px; cursor: pointer;"
+         onclick="pick(this, event)">box_3</div>
 
-            <input type="hidden" name="points" required id="id_points" class="form-control" />
+    <input type="hidden" name="points" required id="id_points" class="form-control" />
+    <input type="hidden" name="x_coordinate_form_pick" required id="x_coordinate_form_pick" class="form-control" />
+    <input type="hidden" name="y_coordinate_form_pick" required id="y_coordinate_form_pick" class="form-control" />
 
     <input id="picked_box_form" disabled />
+
+    <!--<p id="coords_box">Click the box!</p> -->
 
     {% block scripts %}
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <script type="text/javascript">
-            function pick(item) {
+            function pick(item, event) {
 
-                document.getElementById('picked_box_form').value = "You picked " + $(item).attr("class");
-                document.getElementById('id_points').value = $(item).attr("class");
+                document.getElementById('picked_box_form').value = "You picked " + $(item).attr("id");
+                document.getElementById('id_points').value = $(item).attr("id");
+                document.getElementById('x_coordinate_form_pick').value = event.pageX - document.getElementById('box_0').offsetLeft;
+                document.getElementById('y_coordinate_form_pick').value = event.pageY - document.getElementById('box_0').offsetTop;
+                /*var x = document.getElementById('x_coordinate_form_pick').value;
+                var y = document.getElementById('y_coordinate_form_pick').value;
+                document.getElementById("coords_box").innerHTML = "You picked X coordinate: " + x + " You picked Y coordinate: " + y; */
 
-                $(".box_3").fadeOut(500, function() {
-                    $(".box_2").fadeOut(500, function() {
-                        $(".box_1").fadeOut(500, function() {
-                            $(".box_0").fadeOut(500);
+                $("#box_3").fadeOut(500, function() {
+                    $("#box_2").fadeOut(500, function() {
+                        $("#box_1").fadeOut(500, function() {
+                            $("#box_0").fadeOut(500);
                         });
                     });
                 });
