@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <link href="{% static "xtr/style.css" %}" rel="stylesheet">
+    <link href="{% static "xtr_random/style.css" %}" rel="stylesheet">
 
 {% endblock %}
 
@@ -22,11 +22,11 @@
     <div id="guess_box_round_2_legend_div" style="height: 32px;"><div id="guess_box_round_2_legend" style="float: left"><div id="guess_box_round_2_legend_2" style="float: left"></div></div>round 2 guess</div>
     <div id="box_0_result" id="box_0" style="position: relative; width: 725px; height: 725px; "
     >box_0</div>
-    <div id="box_1_result" style="position: relative; top: -325px; left: 200px; width: 325px; height: 325px;"
+    <div id="box_1_result" style="position: relative; top: -725px; width: 325px; height: 325px;"
     >box_1</div>
-    <div id="box_2_result" style="position: relative; top: -450px; left: 300px; width: 125px; height: 125px;"
+    <div id="box_2_result" style="position: relative; top: -1050px; width: 125px; height: 125px;"
     >box_2</div>
-    <div id="box_3_result" style=" position: relative; top: -425px; left: 350px; width: 25px; height: 25px;"
+    <div id="box_3_result" style=" position: relative; top: -1175px; width: 25px; height: 25px;"
     >box_3</div>
     <div id="pick_box_round_1"></div>
     <div id="pick_box_round_1_2"></div>
@@ -53,6 +53,13 @@
                     document.getElementById('result_form').value = "К сожалению, ты не угадал(а) :(";
 
                 }
+
+                $("#box_1_result").offset({'left': document.getElementById('box_1_result').offsetLeft + {{ box_1_offset_left }},
+                    'top': document.getElementById('box_1_result').offsetTop + {{ box_1_offset_top }} });
+                $("#box_2_result").offset({'left': document.getElementById('box_2_result').offsetLeft + {{ box_2_offset_left }},
+                    'top': document.getElementById('box_2_result').offsetTop + {{ box_2_offset_top }} });
+                $("#box_3_result").offset({'left': document.getElementById('box_3_result').offsetLeft + {{ box_3_offset_left }},
+                    'top': document.getElementById('box_3_result').offsetTop + {{ box_3_offset_top }} });
 
                 $("#pick_box_round_1").offset({'left': {{ pick_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
                     'top': {{ pick_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });

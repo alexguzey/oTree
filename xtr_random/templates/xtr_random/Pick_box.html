@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <link href="{% static "xtr/style.css" %}" rel="stylesheet">
+    <link href="{% static "xtr_random/style.css" %}" rel="stylesheet">
 
 {% endblock %}
 
@@ -17,18 +17,26 @@
     <p>Из квадратов ниже выбери один, нажав на него, и после этого нажми кнопку далее. На следующем экране контуры всех квадратов,
         кроме самого большого, пропадут, а сами квадраты переместятся в другое место на экране. Твоей задачей будет попасть в тот
         же самый квадрат, что ты выберешь сейчас. Чем меньше квадрат, тем больше очков ты получишь, при успешном попадании в него.</p>
-    <div id="box_0" style="position: relative; top: 0px; left: 0px; width: 725px; height: 725px;"
+    <div id="box_0" style="position: relative; width: 725px; height: 725px;"
          onclick="pick(this, event)">box_0</div>
-    <div id="box_1" style="position: relative; top: -325px; left: 200px; width: 325px; height: 325px;"
+    <div id="box_1" style="position: relative; top: -725px; width: 325px; height: 325px;"
          onclick="pick(this, event)">box_1</div>
-    <div id="box_2" style="position: relative; top: -450px; left: 300px; width: 125px; height: 125px;"
+    <div id="box_2" style="position: relative; top: -1050px; width: 125px; height: 125px;"
          onclick="pick(this, event)">box_2</div>
-    <div id="box_3" style="position: relative; top: -425px; left: 350px; width: 25px; height: 25px;"
+    <div id="box_3" style="position: relative; top: -1175px; width: 25px; height: 25px;"
          onclick="pick(this, event)">box_3</div>
 
     <input type="hidden" name="points" required id="id_points" class="form-control" />
     <input type="hidden" name="x_coordinate_form_pick" required id="x_coordinate_form_pick" class="form-control" />
     <input type="hidden" name="y_coordinate_form_pick" required id="y_coordinate_form_pick" class="form-control" />
+
+    <input type="hidden" name="box_1_offset_left_form" required id="box_1_offset_left_form" class="form-control" />
+    <input type="hidden" name="box_1_offset_top_form" required id="box_1_offset_top_form" class="form-control" />
+    <input type="hidden" name="box_2_offset_left_form" required id="box_2_offset_left_form" class="form-control" />
+    <input type="hidden" name="box_2_offset_top_form" required id="box_2_offset_top_form" class="form-control" />
+    <input type="hidden" name="box_3_offset_left_form" required id="box_3_offset_left_form" class="form-control" />
+    <input type="hidden" name="box_3_offset_top_form" required id="box_3_offset_top_form" class="form-control" />
+
 
     <input id="picked_box_form" disabled />
 
@@ -38,6 +46,27 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <script type="text/javascript">
+
+            window.onload = function onload_function(item) {
+                var box_1_offset_left = Math.floor((400*Math.random()) + 1);
+                var box_1_offset_top = Math.floor((400*Math.random()) + 1);
+                var box_2_offset_left = Math.floor((600*Math.random()) + 1);
+                var box_2_offset_top = Math.floor((600*Math.random()) + 1);
+                var box_3_offset_left = Math.floor((700*Math.random()) + 1);
+                var box_3_offset_top = Math.floor((700*Math.random()) + 1);
+                document.getElementById('box_1_offset_left_form').value = box_1_offset_left;
+                document.getElementById('box_1_offset_top_form').value = box_1_offset_top;
+                document.getElementById('box_2_offset_left_form').value = box_2_offset_left;
+                document.getElementById('box_2_offset_top_form').value = box_2_offset_top;
+                document.getElementById('box_3_offset_left_form').value = box_3_offset_left;
+                document.getElementById('box_3_offset_top_form').value = box_3_offset_top;
+                $("#box_1").offset({'left': document.getElementById('box_1').offsetLeft + box_1_offset_left, 'top': document.getElementById('box_1').offsetTop + box_1_offset_top });
+                $("#box_2").offset({'left': document.getElementById('box_2').offsetLeft + box_2_offset_left, 'top': document.getElementById('box_2').offsetTop + box_2_offset_top });
+                $("#box_3").offset({'left': document.getElementById('box_3').offsetLeft + box_3_offset_left, 'top': document.getElementById('box_3').offsetTop + box_3_offset_top });
+
+            }
+
+
             function pick(item, event) {
 
                 document.getElementById('picked_box_form').value = "You picked " + $(item).attr("id");
@@ -45,8 +74,8 @@
                 document.getElementById('x_coordinate_form_pick').value = event.pageX - document.getElementById('box_0').offsetLeft;
                 document.getElementById('y_coordinate_form_pick').value = event.pageY - document.getElementById('box_0').offsetTop;
                 /*var x = document.getElementById('x_coordinate_form_pick').value;
-                var y = document.getElementById('y_coordinate_form_pick').value;
-                document.getElementById("coords_box").innerHTML = "You picked X coordinate: " + x + " You picked Y coordinate: " + y; */
+                 var y = document.getElementById('y_coordinate_form_pick').value;
+                 document.getElementById("coords_box").innerHTML = "You picked X coordinate: " + x + " You picked Y coordinate: " + y; */
 
                 $("#box_3").fadeOut(500, function() {
                     $("#box_2").fadeOut(500, function() {

@@ -9,19 +9,19 @@
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/resources/demos/style.css">
-    <link href="{% static "xtr/style.css" %}" rel="stylesheet">
+    <link href="{% static "xtr_random/style.css" %}" rel="stylesheet">
 
 {% endblock %}
 
 {% block content %}
     <p>Попробуй попасть в тот же квадрат, что на предыдущем экране!</p>
-    <div id="box_0_guess" style="position: relative; top: 150px; left: 150px; width: 725px; height: 725px;"
+    <div id="box_0_guess" style="position: relative; width: 725px; height: 725px;"
          onclick="pick(this)"></div>
-    <div id="box_1_guess" style="position: relative; top: -175px; left: 350px; width: 325px; height: 325px;"
+    <div id="box_1_guess" style="position: relative; top: -725px; width: 325px; height: 325px;"
          onclick="pick(this)"></div>
-    <div id="box_2_guess" style="position: relative; top: -300px; left: 450px; width: 125px; height: 125px;"
+    <div id="box_2_guess" style="position: relative; top: -1050px; width: 125px; height: 125px;"
          onclick="pick(this)"></div>
-    <div id="box_3_guess" style="position: relative; top: -275px; left: 500px; margin-bottom: 10px; width: 25px; height: 25px;"
+    <div id="box_3_guess" style="position: relative; top: -1175px; width: 25px; height: 25px;"
          onclick="pick(this)"></div>
 
     <input type="hidden" name="guess" required id="id_guess" class="form-control" />
@@ -33,6 +33,17 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
         <script type="text/javascript">
+
+            window.onload = function onload_function(item) {
+                $("#box_1_guess").offset({'left': document.getElementById('box_1_guess').offsetLeft + {{ box_1_offset_left }},
+                    'top': document.getElementById('box_1_guess').offsetTop + {{ box_1_offset_top }} });
+                $("#box_2_guess").offset({'left': document.getElementById('box_2_guess').offsetLeft + {{ box_2_offset_left }},
+                    'top': document.getElementById('box_2_guess').offsetTop + {{ box_2_offset_top }} });
+                $("#box_3_guess").offset({'left': document.getElementById('box_3_guess').offsetLeft + {{ box_3_offset_left }},
+                    'top': document.getElementById('box_3_guess').offsetTop + {{ box_3_offset_top }} });
+
+            }
+
             function pick(item) {
 
                 $("#box_3_guess").fadeOut(100, function() {
@@ -55,8 +66,8 @@
                 document.getElementById('x_coordinate_form_guess').value = event.pageX - document.getElementById('box_0_guess').offsetLeft;
                 document.getElementById('y_coordinate_form_guess').value = event.pageY - document.getElementById('box_0_guess').offsetTop;
                 /*var x = document.getElementById('x_coordinate_form_guess').value;
-                var y = document.getElementById('y_coordinate_form_guess').value;
-                document.getElementById("coords_box").value = "You picked X coordinate: " + x + " You picked Y coordinate: " + y; */
+                 var y = document.getElementById('y_coordinate_form_guess').value;
+                 document.getElementById("coords_box").value = "You picked X coordinate: " + x + " You picked Y coordinate: " + y; */
 
             }
 

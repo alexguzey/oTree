@@ -16,7 +16,9 @@ class Introduction(Page):
 class Pick_box(Page):
 
     form_model = models.Player
-    form_fields = ['points','x_coordinate_form_pick','y_coordinate_form_pick']
+    form_fields = ['points','x_coordinate_form_pick','y_coordinate_form_pick', 'box_1_offset_left_form','box_1_offset_top_form',
+                   'box_2_offset_left_form', 'box_2_offset_top_form', 'box_3_offset_left_form', 'box_3_offset_top_form'
+                   ]
 
     def vars_for_template(self):
         return {
@@ -30,7 +32,13 @@ class Guess(Page):
 
     def vars_for_template(self):
         return {
-            'picked_box': self.player.points
+            'picked_box': self.player.points,
+            'box_1_offset_left': self.player.box_1_offset_left_form,
+            'box_1_offset_top': self.player.box_1_offset_top_form,
+            'box_2_offset_left': self.player.box_2_offset_left_form,
+            'box_2_offset_top': self.player.box_2_offset_top_form,
+            'box_3_offset_left': self.player.box_3_offset_left_form,
+            'box_3_offset_top': self.player.box_3_offset_top_form
         }
 
 class Result(Page):
@@ -47,7 +55,14 @@ class Result(Page):
             'guess_x_coordinate_1': self.player.in_round(1).x_coordinate_form_guess,
             'guess_x_coordinate_2': self.player.in_round(2).x_coordinate_form_guess,
             'guess_y_coordinate_1': self.player.in_round(1).y_coordinate_form_guess,
-            'guess_y_coordinate_2': self.player.in_round(2).y_coordinate_form_guess
+            'guess_y_coordinate_2': self.player.in_round(2).y_coordinate_form_guess,
+            'box_1_offset_left': self.player.box_1_offset_left_form,
+            'box_1_offset_top': self.player.box_1_offset_top_form,
+            'box_2_offset_left': self.player.box_2_offset_left_form,
+            'box_2_offset_top': self.player.box_2_offset_top_form,
+            'box_3_offset_left': self.player.box_3_offset_left_form,
+            'box_3_offset_top': self.player.box_3_offset_top_form
+
         }
 
 class Final(Page):
