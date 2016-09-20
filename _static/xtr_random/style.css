@@ -105,76 +105,41 @@
 }
 
 
-#pick_box_round_1, #pick_box_round_1_legend {
-    background-color: #f33;
+#pick_box, #pick_box_legend {
+    background-color: #00f;
     width: 32px;
     height: 6px;
     border-radius: 2px;
     transform: rotate(45deg);
 }
-#pick_box_round_1_2, #pick_box_round_1_legend_2 {
-    background-color: #f33;
+#pick_box_2, #pick_box_legend_2 {
+    background-color: #00f;
     width: 32px;
     height: 6px;
     border-radius: 2px;
     transform: rotate(135deg);
 }
-#pick_box_round_1_legend_2 {
+#pick_box_legend_2 {
     transform: rotate(90deg);
 }
 
-#guess_box_round_1, #guess_box_round_1_legend {
-    background-color: #f99;
+#guess_box, #guess_box_legend {
+    background-color: #88f;
     width: 32px;
     height: 6px;
     border-radius: 2px;
     transform: rotate(45deg);
 }
-#guess_box_round_1_2, #guess_box_round_1_legend_2 {
-    background-color: #f99;
+#guess_box_2, #guess_box_legend_2 {
+    background-color: #88f;
     width: 32px;
     height: 6px;
     border-radius: 2px;
     transform: rotate(135deg);
 }
-#guess_box_round_1_legend_2 {
+#guess_box_legend_2 {
     transform: rotate(90deg);
 }
-#pick_box_round_2, #pick_box_round_2_legend {
-    background-color: #3f3;
-    width: 32px;
-    height: 6px;    
-    border-radius: 2px;
-    transform: rotate(45deg);
-}
-#pick_box_round_2_2, #pick_box_round_2_legend_2 {
-    background-color: #3f3;
-    width: 32px;
-    height: 6px;    
-    border-radius: 2px;
-    transform: rotate(135deg);
-}
-#pick_box_round_2_legend_2 {
-    transform: rotate(90deg);
-}
-#guess_box_round_2, #guess_box_round_2_legend {
-    background-color: #9f9;
-    width: 32px;
-    height: 6px;    
-    border-radius: 2px;
-    transform: rotate(45deg);
-}
-#guess_box_round_2_2, #guess_box_round_2_legend_2 {
-    background-color: #9f9;
-    width: 32px;
-    height: 6px;    
-    border-radius: 2px;
-    transform: rotate(135deg);
-}
-#guess_box_round_2_legend_2 {
-    transform: rotate(90deg);
-}
-
 #picked_box_form, #result_form, #box_0_coordinates_form, #coords_box {
         font-size: 32px;
         background-color: transparent;

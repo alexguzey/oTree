@@ -22,7 +22,7 @@ Point guessing game
 class Constants(BaseConstants):
     name_in_url = 'xtr_random'
     players_per_group = None
-    num_rounds = 2
+    num_rounds = 5
 
 class Subsession(BaseSubsession):
     pass

@@ -16,10 +16,8 @@
 {% block content %}
     <input id="result_form" disabled />
     <input id="box_0_coordinates_form" disabled />
-    <div id="pick_box_round_1_legend_div" style="height: 32px;"><div id="pick_box_round_1_legend" style="float: left"><div id="pick_box_round_1_legend_2" style="float: left"></div></div>round 1 pick</div>
-    <div id="guess_box_round_1_legend_div" style="height: 32px;"><div id="guess_box_round_1_legend" style="float: left"><div id="guess_box_round_1_legend_2" style="float: left"></div></div>round 1 guess</div>
-    <div id="pick_box_round_2_legend_div" style="height: 32px;"><div id="pick_box_round_2_legend" style="float: left"><div id="pick_box_round_2_legend_2" style="float: left"></div></div>round 2 pick</div>
-    <div id="guess_box_round_2_legend_div" style="height: 32px;"><div id="guess_box_round_2_legend" style="float: left"><div id="guess_box_round_2_legend_2" style="float: left"></div></div>round 2 guess</div>
+    <div id="pick_box_legend_div" style="height: 32px;"><div id="pick_box_legend" style="float: left"><div id="pick_box_legend_2" style="float: left"></div></div>Pick</div>
+    <div id="guess_box_legend_div" style="height: 32px;"><div id="guess_box_legend" style="float: left"><div id="guess_box_legend_2" style="float: left"></div></div>Guess</div>
     <div id="box_0_result" id="box_0" style="position: relative; width: 725px; height: 725px; "
     >box_0</div>
     <div id="box_1_result" style="position: relative; top: -725px; width: 325px; height: 325px;"
@@ -28,14 +26,10 @@
     >box_2</div>
     <div id="box_3_result" style=" position: relative; top: -1175px; width: 25px; height: 25px;"
     >box_3</div>
-    <div id="pick_box_round_1"></div>
-    <div id="pick_box_round_1_2"></div>
-    <div id="guess_box_round_1"></div>
-    <div id="guess_box_round_1_2"></div>
-    <div id="pick_box_round_2"></div>
-    <div id="pick_box_round_2_2"></div>
-    <div id="guess_box_round_2"></div>
-    <div id="guess_box_round_2_2"></div>
+    <div id="pick_box"></div>
+    <div id="pick_box_2"></div>
+    <div id="guess_box"></div>
+    <div id="guess_box_2"></div>
 
     {% block scripts %}
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -45,8 +39,7 @@
 
                 /* need js_guess coz can't just compare guess and see whether won or lost */
                 var js_guess = {{ guess }};
-                if (js_guess == 1) {
-                    document.getElementById('result_form').value = "Поздравляем ты угадал(а)!";
+                if (js_guess == 1) {                   document.getElementById('result_form').value = "Поздравляем ты угадал(а)!";
 
                 }
                 else {
@@ -61,35 +54,14 @@
                 $("#box_3_result").offset({'left': document.getElementById('box_3_result').offsetLeft + {{ box_3_offset_left }},
                     'top': document.getElementById('box_3_result').offsetTop + {{ box_3_offset_top }} });
 
-                $("#pick_box_round_1").offset({'left': {{ pick_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                    'top': {{ pick_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                $("#pick_box_round_1_2").offset({'left': {{ pick_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                        'top': {{ pick_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                $("#guess_box_round_1").offset({'left': {{ guess_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                    'top': {{ guess_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                $("#guess_box_round_1_2").offset({'left': {{ guess_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                        'top': {{ guess_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
-
-                var js_current_round = {{ round_number }};
-                if (js_current_round > 1) {
-                    $("#pick_box_round_2").offset({'left': {{ pick_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                        'top': {{ pick_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                    $("#pick_box_round_2_2").offset({'left': {{ pick_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                        'top': {{ pick_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                    $("#guess_box_round_2").offset({'left': {{ guess_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                        'top': {{ guess_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                    $("#guess_box_round_2_2").offset({'left': {{ guess_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
-                        'top': {{ guess_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
-                }
-                else {
-                    $("#pick_box_round_2").fadeOut();
-                    $("#guess_box_round_2").fadeOut();
-                    $("#pick_box_round_2_2").fadeOut();
-                    $("#guess_box_round_2_2").fadeOut();
-                    $("#pick_box_round_2_legend_div").fadeOut();
-                    $("#guess_box_round_2_legend_div").fadeOut();
-
-                }
+                $("#pick_box").offset({'left': {{ pick_x_coordinate }} + document.getElementById('box_0_result').offsetLeft - 16,
+                    'top': {{ pick_y_coordinate }} + document.getElementById('box_0_result').offsetTop - 16 });
+                $("#pick_box_2").offset({'left': {{ pick_x_coordinate }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ pick_y_coordinate }} + document.getElementById('box_0_result').offsetTop - 16 });
+                $("#guess_box").offset({'left': {{ guess_x_coordinate }} + document.getElementById('box_0_result').offsetLeft - 16,
+                    'top': {{ guess_y_coordinate }} + document.getElementById('box_0_result').offsetTop - 16 });
+                $("#guess_box_2").offset({'left': {{ guess_x_coordinate }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ guess_y_coordinate }} + document.getElementById('box_0_result').offsetTop - 16 });
 
             }
 
