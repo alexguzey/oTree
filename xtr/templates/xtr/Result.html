@@ -16,10 +16,10 @@
 {% block content %}
     <input id="result_form" disabled />
     <input id="box_0_coordinates_form" disabled />
-    <div id="pick_box_round_1_legend_div"><div id="pick_box_round_1_legend" style="float: left"></div>round 1 pick</div>
-    <div id="guess_box_round_1_legend_div"><div id="guess_box_round_1_legend" style="float: left"></div>round 1 guess</div>
-    <div id="pick_box_round_2_legend_div"><div id="pick_box_round_2_legend" style="float: left"></div>round 2 pick</div>
-    <div id="guess_box_round_2_legend_div"><div id="guess_box_round_2_legend" style="float: left"></div>round 2 guess</div>
+    <div id="pick_box_round_1_legend_div" style="height: 32px;"><div id="pick_box_round_1_legend" style="float: left"><div id="pick_box_round_1_legend_2" style="float: left"></div></div>round 1 pick</div>
+    <div id="guess_box_round_1_legend_div" style="height: 32px;"><div id="guess_box_round_1_legend" style="float: left"><div id="guess_box_round_1_legend_2" style="float: left"></div></div>round 1 guess</div>
+    <div id="pick_box_round_2_legend_div" style="height: 32px;"><div id="pick_box_round_2_legend" style="float: left"><div id="pick_box_round_2_legend_2" style="float: left"></div></div>round 2 pick</div>
+    <div id="guess_box_round_2_legend_div" style="height: 32px;"><div id="guess_box_round_2_legend" style="float: left"><div id="guess_box_round_2_legend_2" style="float: left"></div></div>round 2 guess</div>
     <div id="box_0_result" id="box_0" style="position: relative; width: 725px; height: 725px; "
     >box_0</div>
     <div id="box_1_result" style="position: relative; top: -325px; left: 200px; width: 325px; height: 325px;"
@@ -29,9 +29,13 @@
     <div id="box_3_result" style=" position: relative; top: -425px; left: 350px; width: 25px; height: 25px;"
     >box_3</div>
     <div id="pick_box_round_1"></div>
+    <div id="pick_box_round_1_2"></div>
     <div id="guess_box_round_1"></div>
+    <div id="guess_box_round_1_2"></div>
     <div id="pick_box_round_2"></div>
+    <div id="pick_box_round_2_2"></div>
     <div id="guess_box_round_2"></div>
+    <div id="guess_box_round_2_2"></div>
 
     {% block scripts %}
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -50,21 +54,31 @@
 
                 }
 
-                $("#pick_box_round_1").offset({'left': {{ pick_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft,
-                    'top': {{ pick_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop });
-                $("#guess_box_round_1").offset({'left': {{ guess_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft,
-                    'top': {{ guess_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop });
+                $("#pick_box_round_1").offset({'left': {{ pick_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                    'top': {{ pick_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
+                $("#pick_box_round_1_2").offset({'left': {{ pick_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ pick_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
+                $("#guess_box_round_1").offset({'left': {{ guess_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                    'top': {{ guess_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
+                $("#guess_box_round_1_2").offset({'left': {{ guess_x_coordinate_1 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ guess_y_coordinate_1 }} + document.getElementById('box_0_result').offsetTop - 16 });
 
                 var js_current_round = {{ round_number }};
                 if (js_current_round > 1) {
-                    $("#pick_box_round_2").offset({'left': {{ pick_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft,
-                        'top': {{ pick_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop });
-                    $("#guess_box_round_2").offset({'left': {{ guess_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft,
-                        'top': {{ guess_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop });
+                    $("#pick_box_round_2").offset({'left': {{ pick_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ pick_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
+                    $("#pick_box_round_2_2").offset({'left': {{ pick_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ pick_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
+                    $("#guess_box_round_2").offset({'left': {{ guess_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ guess_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
+                    $("#guess_box_round_2_2").offset({'left': {{ guess_x_coordinate_2 }} + document.getElementById('box_0_result').offsetLeft - 16,
+                        'top': {{ guess_y_coordinate_2 }} + document.getElementById('box_0_result').offsetTop - 16 });
                 }
                 else {
                     $("#pick_box_round_2").fadeOut();
                     $("#guess_box_round_2").fadeOut();
+                    $("#pick_box_round_2_2").fadeOut();
+                    $("#guess_box_round_2_2").fadeOut();
                     $("#pick_box_round_2_legend_div").fadeOut();
                     $("#guess_box_round_2_legend_div").fadeOut();
 
