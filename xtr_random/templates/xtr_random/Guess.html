@@ -1,0 +1,71 @@
+{% extends "global/Base.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Выбери квадрат
+{% endblock %}
+
+{% block styles %}
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link href="{% static "xtr/style.css" %}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+    <p>Попробуй попасть в тот же квадрат, что на предыдущем экране!</p>
+    <div id="box_0_guess" style="position: relative; top: 150px; left: 150px; width: 725px; height: 725px;"
+         onclick="pick(this)"></div>
+    <div id="box_1_guess" style="position: relative; top: -175px; left: 350px; width: 325px; height: 325px;"
+         onclick="pick(this)"></div>
+    <div id="box_2_guess" style="position: relative; top: -300px; left: 450px; width: 125px; height: 125px;"
+         onclick="pick(this)"></div>
+    <div id="box_3_guess" style="position: relative; top: -275px; left: 500px; margin-bottom: 10px; width: 25px; height: 25px;"
+         onclick="pick(this)"></div>
+
+    <input type="hidden" name="guess" required id="id_guess" class="form-control" />
+    <input type="hidden" name="x_coordinate_form_guess" required id="x_coordinate_form_guess" class="form-control" />
+    <input type="hidden" name="y_coordinate_form_guess" required id="y_coordinate_form_guess" class="form-control" />
+    <!--<input id="coords_box" disabled /> -->
+
+    {% block scripts %}
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+        <script type="text/javascript">
+            function pick(item) {
+
+                $("#box_3_guess").fadeOut(100, function() {
+                    $("#box_2_guess").fadeOut(100, function() {
+                        $("#box_1_guess").fadeOut(100, function() {
+                            $("#box_0_guess").fadeOut(100);
+                        });
+                    });
+                });
+
+                var guessed_box = $(item).attr("id");
+                var js_picked_box = "{{ picked_box }}";
+                if (js_picked_box+"_guess" == guessed_box) {
+                    document.getElementById('id_guess').value = 1;
+                }
+                else {
+                    document.getElementById('id_guess').value = 0;
+                }
+
+                document.getElementById('x_coordinate_form_guess').value = event.pageX - document.getElementById('box_0_guess').offsetLeft;
+                document.getElementById('y_coordinate_form_guess').value = event.pageY - document.getElementById('box_0_guess').offsetTop;
+                /*var x = document.getElementById('x_coordinate_form_guess').value;
+                var y = document.getElementById('y_coordinate_form_guess').value;
+                document.getElementById("coords_box").value = "You picked X coordinate: " + x + " You picked Y coordinate: " + y; */
+
+            }
+
+        </script>
+
+    {% endblock %}
+
+    <p style="margin-top: 100px;">Нажми далее, чтобы увидеть угадал(а) ты или нет!</p>
+
+    {% next_button %}
+
+{% endblock %}

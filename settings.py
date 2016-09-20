@@ -138,6 +138,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['xtr'],
     },
     {
+        'name': 'xtr_random',
+        'display_name': "XTR with random small boxes placing",
+        'num_demo_participants': 1,
+        'app_sequence': ['xtr_random'],
+    },
+    {
         'name': 'reform',
         'display_name': "Reform Game",
         'num_demo_participants': 2,

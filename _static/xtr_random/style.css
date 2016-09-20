@@ -1,0 +1,191 @@
+#box_0 {
+    background-color: #ddd;
+    margin-bottom: -200px;
+    font-size: 64px;
+    text-align: center;
+    transition: .5s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_0:hover {
+    background-color: #9ac1ff;
+}
+#box_1 {
+    background-color: #bbb; 
+    margin-bottom: -100px;
+    font-size: 32px;
+    text-align: center;
+    transition: .5s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_1:hover {
+    background-color: #9ac1ff;
+}
+#box_2 {
+    background-color: #888;
+    margin-bottom: -100px;
+    font-size: 16px;
+    text-align: center;
+    transition: .5s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_2:hover {
+    background-color: #9ac1ff;
+}
+#box_3 {
+    background-color: #555;
+    margin-bottom: -50px; 
+    font-size: 8px;
+    text-align: center;
+    transition: .5s;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_3:hover {
+    background-color: #9ac1ff;
+}
+
+
+
+
+
+#box_0_guess {
+    background-color: #ddd;
+    margin-bottom: -200px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_1_guess {
+    background-color: #ddd; 
+    margin-bottom: -100px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_2_guess {
+    background-color: #ddd;
+    margin-bottom: -100px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+#box_3_guess {
+    background-color: #ddd;
+    margin-bottom: -50px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+#box_0_result {
+    background-color: #ddd;
+    margin-bottom: -200px;
+    font-size: 64px;
+    text-align: center;
+    border-radius: 2px;
+}
+#box_1_result {
+    background-color: #bbb; 
+    margin-bottom: -100px;
+    font-size: 32px;
+    text-align: center;
+    border-radius: 2px;
+}
+#box_2_result {
+    background-color: #888;
+    margin-bottom: -100px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 2px;
+}
+#box_3_result {
+    background-color: #555;
+    margin-bottom: -75px; 
+    font-size: 8px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+
+#pick_box_round_1, #pick_box_round_1_legend {
+    background-color: #f33;
+    width: 32px;
+    height: 6px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+#pick_box_round_1_2, #pick_box_round_1_legend_2 {
+    background-color: #f33;
+    width: 32px;
+    height: 6px;
+    border-radius: 2px;
+    transform: rotate(135deg);
+}
+#pick_box_round_1_legend_2 {
+    transform: rotate(90deg);
+}
+
+#guess_box_round_1, #guess_box_round_1_legend {
+    background-color: #f99;
+    width: 32px;
+    height: 6px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+#guess_box_round_1_2, #guess_box_round_1_legend_2 {
+    background-color: #f99;
+    width: 32px;
+    height: 6px;
+    border-radius: 2px;
+    transform: rotate(135deg);
+}
+#guess_box_round_1_legend_2 {
+    transform: rotate(90deg);
+}
+#pick_box_round_2, #pick_box_round_2_legend {
+    background-color: #3f3;
+    width: 32px;
+    height: 6px;    
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+#pick_box_round_2_2, #pick_box_round_2_legend_2 {
+    background-color: #3f3;
+    width: 32px;
+    height: 6px;    
+    border-radius: 2px;
+    transform: rotate(135deg);
+}
+#pick_box_round_2_legend_2 {
+    transform: rotate(90deg);
+}
+#guess_box_round_2, #guess_box_round_2_legend {
+    background-color: #9f9;
+    width: 32px;
+    height: 6px;    
+    border-radius: 2px;
+    transform: rotate(45deg);
+}
+#guess_box_round_2_2, #guess_box_round_2_legend_2 {
+    background-color: #9f9;
+    width: 32px;
+    height: 6px;    
+    border-radius: 2px;
+    transform: rotate(135deg);
+}
+#guess_box_round_2_legend_2 {
+    transform: rotate(90deg);
+}
+
+#picked_box_form, #result_form, #box_0_coordinates_form, #coords_box {
+        font-size: 32px;
+        background-color: transparent;
+        border-width: 0;
+        width: 100%;
+        margin: 0 0 4px 0;
+        color: #444;
+    }
