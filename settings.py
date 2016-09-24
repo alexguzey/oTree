@@ -76,7 +76,7 @@ INSTALLED_APPS = []
 DEMO_PAGE_INTRO_TEXT = """
 <ul>
     <li>
-        <a href="https://github.com/oTree-org/otree" target="_blank">
+        <a href="https://github.com/guzey/oTree" target="_blank">
             Source code
         </a> for the below games.
     </li>
