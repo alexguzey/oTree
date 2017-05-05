@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 from os import environ
 
@@ -139,7 +141,7 @@ SESSION_CONFIG_DEFAULTS = {
 SESSION_CONFIGS = [
     {
         'name': 'my_survey',
-        'display_name': "Опрос (тест)",
+        'display_name': "Опрос",
         'num_demo_participants': 5,
         'app_sequence': ['my_survey'],
     },
