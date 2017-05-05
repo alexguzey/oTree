@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}  Принятие решений: раунд {{ current_round }} из {{ Constants.num_rounds }}  {% endblock %}
+
+{% block content %}
+    {% include 'PG_try/Instructions.html' %}
+
+ <p>
+<!--    <b>Это игра на создание общественного блага.</b> -->
+
+    В каждой группе по {{ Constants.players_per_group }} участника,
+    случайным образом разбитые на равные группы. Состав групп не меняется на
+    протяжении всей игры.
+
+     <br> <br>
+
+     Каждая единица на личном счету приносит 1 евро лично данному участнику.
+
+    <br>
+
+    Каждая единица на общем счету приносит {{ Constants.efficiency_factor }}
+    евро каждому участнику из данной группы, вне зависимости от его или ее взноса.
+
+     <br> <br>
+
+    Ваша цель - максимизировать ваш собственный доход, который в каждом раунде
+    формируется как
+
+    <br>
+
+    <i>Доход = 100 - Ваш взнос на общий счет + <wbr> {{Constants.efficiency_factor}} * сумма взносов на общий счет/5</i>
+
+    <br><br>
+</p>
+
+
+{% formfield player.contribution with label="Сколько Вы внесете на общий счет?" %}
+
+{% next_button %}
+
+{% endblock %}
+
