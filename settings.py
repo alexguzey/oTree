@@ -139,12 +139,12 @@ SESSION_CONFIG_DEFAULTS = {
 }
 
 SESSION_CONFIGS = [
-    # {
-    #     'name': 'my_survey',
-    #     'display_name': "Опрос",
-    #     'num_demo_participants': 5,
-    #     'app_sequence': ['my_survey'],
-    # },
+    {
+        'name': 'my_survey',
+        'display_name': "Опрос",
+        'num_demo_participants': 5,
+        'app_sequence': ['my_survey'],
+    },
     {
         'name': 'PG_try',
         'display_name': "Групповая игра",
