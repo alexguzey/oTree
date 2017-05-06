@@ -25,7 +25,7 @@ class Player(BasePlayer):
         self.payoff = 0
 
     age = models.PositiveIntegerField(verbose_name='Ваш возраст (полных лет)',
-                                        choices=range(13, 95),
+                                        min=13, max=95,
                                         initial=None)
 
     gender = models.BooleanField(initial=None,
@@ -33,20 +33,20 @@ class Player(BasePlayer):
                                 verbose_name='Ваш пол',
                                 widget=widgets.RadioSelect())
 
-    heigth = models.PositiveIntegerField(verbose_name='Ваш рост (в сантиметрах)',
-                                        choices=range(100, 230),
+    height = models.PositiveIntegerField(verbose_name='Ваш рост (в сантиметрах)',
+                                        min=100, max=230,
                                         initial=None)
 
     city = models.PositiveIntegerField(
         verbose_name='''
-    Сколько человек (приблизительно) проживало в том населенном пункте, где Вы жили в возрасте 16 лет.''',
-        choices = range(1, 30000000),
+    Сколько человек (приблизительно, в тысячах) проживало в том населенном пункте, где Вы жили в возрасте 16 лет.''',
+         min=1, max=30000,
               initial = None)
 
     yearsinmsc = models.PositiveIntegerField(
         verbose_name='''
     Укажите, сколько лет Вы живете в Москве. Впишите число, округленное до ближайшего целого числа лет.''',
-    choices = range(0, 95),
+    min=0, max=95,
               initial = None)
 
     mscyourcity = models.PositiveIntegerField(

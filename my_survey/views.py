@@ -22,7 +22,7 @@ class Yourself(Page):
     form_fields = ['univ',
                    'study',
                    'riskat',
-                   'income'
+                   'income',
                    'satis',
                    'trust']
 
@@ -31,7 +31,7 @@ class polit(Page):
     form_fields = ['freedom',
                        'politics',
                        'leftright',
-                       'ownership'
+                       'ownership',
                        'responsibility',
                        'democracy', 'democracy_today']
 
