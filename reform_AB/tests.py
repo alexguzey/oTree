@@ -11,15 +11,13 @@ from .models import Constants
 
 
 class PlayerBot(Bot):
-    """Bot that plays one round"""
 
     def play_round(self):
-
-        if self.subsession.round_number == Constants.num_rounds:
-            self.submit(views.Decisions, {'approval': random.randint(0,1), 'vote_to_overthrow': 0})
-            self.submit(views.FinalResults)
-        else:
-            self.submit(views.Decisions, {'approval': random.randint(0,1), 'vote_to_overthrow': random.randint(0,Constants.max_overthrow_vote_for_player)})
-
-    def validate_play(self):
-        pass
+        yield (views.Introduction)
+        yield (views.PreOverthrow, {'approval': 1, 'vote_to_overthrow': 3})
+        yield (views.PreOverthrow, {'approval': 1, 'vote_to_overthrow': 3})
+        yield (views.PreOverthrow, {'approval': 0, 'vote_to_overthrow': 3})
+        yield (views.PreOverthrow, {'approval': 1, 'vote_to_overthrow': 3})
+        yield (views.PreOverthrow, {'approval': 1, 'vote_to_overthrow': 3})
+        yield (views.FinalVote, {'approval_final': 1, 'vote_to_overthrow': 3})
+        yield (views.FinalResults)

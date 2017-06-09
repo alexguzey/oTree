@@ -7,34 +7,43 @@
 
 {% block content %}
 
-    {% if overthrow == 0 %}
+    <p>
+    За отказ от всех реформ проголосовали {{ final_reform_disapprovals }} из {{ Constants.players_per_group }} участников.
+    </p>
+
+    {% if final_reform_disapprovals >= 3 %}
         <p>
-            В предыдущем раунде реформа была поддержана {{ total_approvals }} людьми.
+            Все реформы были отыграны назад.
             <br />
-            В предыдущем раунде ваша прибыль составила {{ player_payoff_in_last_round }}.
+            Ваша прибыль составила {{ Constants.payoff_reforms_reversal }}.
             <br />
-            За все раунды ваша прибыль составила {{ player_payoff }}.
         </p>
+
     {% else %}
-        <p>
-
-            {% if current_round != overthrow_round %}
-
-                {% if coordinated_reforms_in_last_round > 0 %}
-                    В предыдущем раунде ваша группа успешно реализовала {{ coordinated_reforms_in_last_round }} реформ.
-                {% else %}
-                    В предыдущем раунде ваша группа не смогла договориться о количестве желаемых реформ, и в результате каждый игрок потерял {{ Constants.losses_from_chaos }} очков.
-                {% endif %}
-
-            {% endif %}
-            В предыдущем раунде
-            <br />
-            В предыдыдущем раунде ваша прибыль составила {{ player_payoff_in_last_round }}.
+            Все реформы были приняты.
             <br />
             За все раунды ваша прибыль составила {{ player_payoff }}.
-        </p>
-    {% endif %}
+        <p>
+    {%  endif %}
+{##}
+{#            {% if current_round != overthrow_round %}#}
+{##}
+{#                {% if coordinated_reforms_in_last_round > 0 %}#}
+{#                    В предыдущем раунде ваша группа успешно реализовала {{ coordinated_reforms_in_last_round }} реформ.#}
+{#                {% else %}#}
+{#                    В предыдущем раунде ваша группа не смогла договориться о количестве желаемых реформ, и в результате каждый игрок потерял {{ Constants.losses_from_chaos }} очков.#}
+{#                {% endif %}#}
+{##}
+{#            {% endif %}#}
+{#            В предыдущем раунде#}
+{#            <br />#}
+{#            В предыдыдущем раунде ваша прибыль составила {{ player_payoff_in_last_round }}.#}
+{#            <br />#}
+{#            За все раунды ваша прибыль составила {{ player_payoff }}.#}
+{#        </p>#}
+{#    {% endif %}#}
     <p>
         Это был финальный раунд. Спасибо за участие!
     </p>
+
 {% endblock %}

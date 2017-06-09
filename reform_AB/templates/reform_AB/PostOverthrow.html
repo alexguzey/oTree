@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block styles %}
-    <link href="{% static "reform/style.css" %}" rel="stylesheet">
+    <link href="{% static "reform_AB/style.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -16,7 +16,7 @@
         {% if current_round == overthrow_starts %}
 
             <p>
-                Вашей группе удалось сменить режим!
+                Ваша группа отклонила реформы!
                 <br />
                 В предыдущем раунде ваша прибыль составила {{ player_payoff_in_previous_round }}.
                 <br />
